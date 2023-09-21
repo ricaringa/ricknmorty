@@ -3,7 +3,7 @@ import { character, episode, location } from "../interfaces/data";
 export const getLocationById = (id: number) => {
   return new Promise<location>((resolve, reject) => {
     try {
-      fetch(`https://rickandmortyapi.com/api/location/${id}`).then((data) =>
+      fetch(`${import.meta.env.VITE_API_BASE_URL}location/${id}`).then((data) =>
         resolve(data.json())
       );
     } catch (e) {

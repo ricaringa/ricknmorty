@@ -12,7 +12,7 @@ export default function Home() {
     p={10}
     justifyContent={'center'}
     flexDir={'column'}
-    w={'full'}
+    w={'calc(100vw)'}
     minH={'calc(100vh)'}
     h={'-webkit-max-content'}
     fontFamily={'Urbanist'}
@@ -20,7 +20,7 @@ export default function Home() {
     >
       <Center
       flexDir={'column'}
-      gap={5} px={10}>
+      gap={5}>
       <Header />
       <SearchBar />
       <CharacterList />

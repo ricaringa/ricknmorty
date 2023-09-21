@@ -15,8 +15,8 @@ export default function CharactersOnEpisode({ characters } : CharactersOnEpisode
   }, []);
   return (
     <AvatarGroup size='md' max={6} w={'full'}>
-      {onThisEpisode.map((characterOnEpisode)=> (
-        <Avatar name={characterOnEpisode.name} src={characterOnEpisode.image} />
+      {onThisEpisode.map((characterOnEpisode, index)=> (
+        <Avatar key={index} name={characterOnEpisode.name} src={characterOnEpisode.image} />
       ))}
 </AvatarGroup>
   )
