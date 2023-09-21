@@ -9,7 +9,10 @@ export const theme = extendTheme({
       brown: "#87501F",
       beige: "#F7C49D",
       gray: "#EAEAEA",
-      green: "#97ce4c"
+      green: "#97ce4c",
+      lightBG: "#60a85f",
+      redBG: "#ff6666",
+      blueBG: "#144169"
     },
   },
 })
