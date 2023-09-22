@@ -1,10 +1,11 @@
 import useData from "../../hooks/useData"
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Center, SimpleGrid } from "@chakra-ui/react"
+import { Alert, AlertDescription, AlertIcon, Center, SimpleGrid } from "@chakra-ui/react"
 import CharacterCard from "../CharacterCard"
+import { useTranslation } from "react-i18next"
 
 export default function CharacterList() {
   const { Characters, HaveResidents } = useData()
-
+  const { t } = useTranslation()
   return (
     <Center
     gap={5}>
@@ -17,8 +18,7 @@ export default function CharacterList() {
       ) : 
       <Alert status='error' rounded={'lg'}>
   <AlertIcon />
-  <AlertTitle>Oh no</AlertTitle>
-  <AlertDescription>This location has no residents :c</AlertDescription>
+  <AlertDescription>{t("noResidentsMessage")} 😩</AlertDescription>
 </Alert>}
       
     </Center>

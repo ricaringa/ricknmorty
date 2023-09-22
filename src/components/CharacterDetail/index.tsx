@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { character } from '../../interfaces/data'
 import Episodes from '../Episodes'
+import { useTranslation } from 'react-i18next'
 
 interface CharacterDetailProps{
   isOpen: boolean,
@@ -25,12 +26,13 @@ interface CharacterDetailProps{
   onClose: () => void,
   character: character
 }
-export default function CharacterDetail({ isOpen, onOpen, onClose, character} : CharacterDetailProps) {
+export default function CharacterDetail({ isOpen, onClose, character} : CharacterDetailProps) {
+  const { t } = useTranslation()
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent w={{ base: "90vw" }}>
-          <ModalHeader>{character.name}'s info</ModalHeader>
+          <ModalHeader>{t("characterLabel")}: {character.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody justifyContent={"center"}>
             <Image
@@ -49,7 +51,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
                 fontSize={"sm"}
                 textTransform={"uppercase"}
               >
-                Specie:
+                {t("specieDetail")}:
                 <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
                   {character.species}
                 </Badge>
@@ -64,7 +66,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
                   bg={useColorModeValue("gray.50", "gray.800")}
                   fontWeight={"400"}
                 >
-                  Status: {character.status}
+                  {t("statusDetail")}: {character.status}
                 </Badge>
                 <Badge
                   px={2}
@@ -74,7 +76,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
                   whiteSpace={"initial"}
                   display={"flex"}
                 >
-                  Origin: {character.origin.name}
+                  {t("originDetail")}: {character.origin.name}
                 </Badge>
                 <Badge
                   px={2}
@@ -84,7 +86,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
                   whiteSpace={"initial"}
                   display={"flex"}
                 >
-                  Location: {character.location.name}
+                  {t("locationDetail")}: {character.location.name}
                 </Badge>
                 <Badge
                   px={2}
@@ -94,7 +96,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
                   whiteSpace={"initial"}
                   display={"flex"}
                 >
-                  Gender: {character.gender}
+                  {t("genderDetail")}: {character.gender}
                 </Badge>
               </SimpleGrid>
               <Episodes data={character.episode}/>
@@ -103,7 +105,7 @@ export default function CharacterDetail({ isOpen, onOpen, onClose, character} : 
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+              {t("close")}
             </Button>
           </ModalFooter>
         </ModalContent>

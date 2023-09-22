@@ -10,10 +10,12 @@ import { episode } from "../../interfaces/data";
 import { useEffect, useState } from "react";
 import Episode from "../Episode";
 import { getEpisodes } from "../../utils/fetchData";
+import { useTranslation } from "react-i18next";
 interface EpisodesProps {
   data: string[];
 }
 export default function Episodes({ data }: EpisodesProps) {
+  const { t } = useTranslation()
   const [episodes, setEpisodes] = useState<Array<episode>>([]);
   useEffect(() => {
     getEpisodes(data).then((data) => {
@@ -26,7 +28,7 @@ export default function Episodes({ data }: EpisodesProps) {
         <h2>
           <AccordionButton>
             <Box as="span" flex="1" textAlign="left">
-              Episodes
+              {t("episodesDetail")}
             </Box>
             <AccordionIcon />
           </AccordionButton>

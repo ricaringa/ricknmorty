@@ -9,18 +9,17 @@ import {
   Image,
   Badge,
   useDisclosure,
-  Button,
-  SimpleGrid,
   Spinner,
 } from "@chakra-ui/react";
-import Episodes from "../Episodes";
 import FavoriteButton from "../FavoriteButton";
 import CharacterDetail from "../CharacterDetail";
+import { useTranslation } from "react-i18next";
 interface CharacterCardProps {
   character: character;
 }
 export default function CharacterCard({ character }: CharacterCardProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation()
   return (
     <Center py={12}>
       <CharacterDetail isOpen={isOpen} onOpen={onOpen} onClose={onClose} character={character} />
@@ -79,7 +78,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
         w={'full'}>
         <Stack pt={10} align={"center"}>
           <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
-            Specie:
+            {t("specieDetail")}:
             <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
               {character.species}
             </Badge>

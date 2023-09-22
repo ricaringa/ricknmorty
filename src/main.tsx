@@ -8,7 +8,7 @@ import store from './store/index.ts'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Favorites from './components/Favorites/index.tsx'
 import CharacterList from './components/CharacterList/index.tsx'
-
+import "./i18n";
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
