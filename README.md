@@ -1,6 +1,7 @@
 # Rick and Morty Search App
 
-![App Demo](demo.gif) <!-- Add a demo GIF or screenshot here -->
+<img src="https://github.com/ricaringa/ricknmorty/assets/130535620/1f1c2e57-d4a9-43b0-bc93-504473b03aec" alt="App Screenshot" width="300"/> <!-- Add a demo GIF or screenshot here -->
+
 
 A powerful search app that allows users to search for characters by location ID in the Rick and Morty universe. The app fetches data from the [Rick and Morty API](https://rickandmortyapi.com/) to provide detailed information about the characters found in the specified location.
 
