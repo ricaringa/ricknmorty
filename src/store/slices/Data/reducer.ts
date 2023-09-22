@@ -9,14 +9,16 @@ interface initialStateType {
   Characters: Array<character>,
   Loading: boolean,
   HaveResidents: boolean,
-  BG: string
+  BG: string,
+  Favs: character[]
 }
 
 const initialState: initialStateType = {
   Characters: [],
   Loading: false,
   HaveResidents: true,
-  BG: 'brand.blue'
+  BG: 'brand.blue',
+  Favs: JSON.parse(localStorage.getItem('FavCharacters') || '[]')
 }
 
 const dataReducer = createSlice({
@@ -31,8 +33,12 @@ const dataReducer = createSlice({
         state.HaveResidents = false
       }
     },
+    setFavs: (state, action) => {state.Favs = action.payload},
+    updateFavs: (state, action) => {
+      state.Favs = action.payload
+    },
     setLoading: (state, action) => {
-      state.Loading == action.payload
+      state.Loading = action.payload
     },
     setBG: (state, action) => {
       state.BG = action.payload

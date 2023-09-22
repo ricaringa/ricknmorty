@@ -12,13 +12,13 @@ export default function useSearchBar() {
   };
   const handleSearchButtonClick = () => {
     input !== "" && setId(Number.parseInt(input));
+    dispatch(DataActions.setLoading(true))
     dispatch(DataActions.setBG(getBgColorValue(Number.parseInt(input))))
     setInput('')
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter') {
-      // 👇 Get input value
       input !== "" && setId(Number.parseInt(input));
     dispatch(DataActions.setBG(getBgColorValue(Number.parseInt(input))))
     setInput('')
