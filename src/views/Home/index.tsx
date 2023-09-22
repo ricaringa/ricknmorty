@@ -12,20 +12,19 @@ export default function Home() {
   const location = useLocation() 
   return (
     <Center
-    p={10}
     justifyContent={'center'}
     flexDir={'column'}
     w={'calc(100vw)'}
     minH={'calc(100vh)'}
-    h={'-webkit-max-content'}
     fontFamily={'Urbanist'}
     bgColor={BG}
-    overflowY="auto"
+    py={10}
         >
       <Center
       flexDir={'column'}
       gap={5}
-      p={10}>
+      h={'-webkit-fit-content'} 
+      py={10}>
       <Nav />
       <Header />
       {location.pathname === '/' && <SearchBar />}
