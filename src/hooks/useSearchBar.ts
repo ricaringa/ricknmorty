@@ -13,8 +13,8 @@ export default function useSearchBar() {
     setShowAlert(false)
   };
   const handleSearchButtonClick = () => {
-    input !== "" && setId(Number.parseInt(input));
     if(Number.parseInt(input) > 0 && Number.parseInt(input) < 127){
+      input !== "" && setId(Number.parseInt(input));
       dispatch(DataActions.setLoading(true))
     dispatch(DataActions.setBG(getBgColorValue(Number.parseInt(input))))
     setInput('')
@@ -25,8 +25,8 @@ export default function useSearchBar() {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter') {
-      input !== "" && setId(Number.parseInt(input));
       if(Number.parseInt(input) > 0 && Number.parseInt(input) < 127){
+        input !== "" && setId(Number.parseInt(input));
         dispatch(DataActions.setLoading(true))
       dispatch(DataActions.setBG(getBgColorValue(Number.parseInt(input))))
       setInput('')

@@ -1,12 +1,12 @@
 import useData from "../../hooks/useData"
-import { Alert, AlertDescription, AlertIcon, Center, SimpleGrid } from "@chakra-ui/react"
+import { Alert, AlertDescription, AlertIcon, Center, SimpleGrid, Spinner } from "@chakra-ui/react"
 import CharacterCard from "../CharacterCard"
 import { useTranslation } from "react-i18next"
 
 export default function CharacterList() {
-  const { Characters, HaveResidents } = useData()
+  const { Loading, Characters, HaveResidents } = useData()
   const { t } = useTranslation()
-  return (
+  return Loading ? <Spinner size={'md'} color={'brand.blue'} /> : (
     <Center
     gap={5}>
       {HaveResidents ? (
